@@ -2,7 +2,8 @@ import React from 'react';
 import { View, Image } from 'react-native';
 import { Button, Headline } from 'react-native-paper';
 
-export default function StartPage({ navigation }) {
+//TODO: Fikse typen til navigation sånn at det ikke er any
+export default function StartPage({ navigation}) {
     return (
         <View style={{ marginTop: '50%' }}>
             <Headline style={{ textAlign: 'center' }}>Bæædar</Headline>

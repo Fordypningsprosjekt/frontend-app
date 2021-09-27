@@ -11,9 +11,9 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		5E936E0C2B32C51D86F452A4 /* libPods-Korbe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36C2A95E607B7AC928438EA5 /* libPods-Korbe.a */; };
-		80B05E7C27E4EAAEFA9C485F /* libPods-Korbe-KorbeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B60E3499D4FAD49216AC512B /* libPods-Korbe-KorbeTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		889DCE7435F25983CAD867AE /* Pods_Korbe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D37B67752C65F226AA0E16 /* Pods_Korbe.framework */; };
+		E103C5B8D0AE1A4DBC467126 /* Pods_Korbe_KorbeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFEA00FCE80F18177F53AEDA /* Pods_Korbe_KorbeTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,20 +30,20 @@
 		00E356EE1AD99517003FC87E /* KorbeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KorbeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* KorbeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KorbeTests.m; sourceTree = "<group>"; };
-		0CD60F5EB7D0C4CBEB29114F /* Pods-Korbe-KorbeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Korbe-KorbeTests.debug.xcconfig"; path = "Target Support Files/Pods-Korbe-KorbeTests/Pods-Korbe-KorbeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* Korbe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Korbe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Korbe/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Korbe/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Korbe/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Korbe/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Korbe/main.m; sourceTree = "<group>"; };
-		36C2A95E607B7AC928438EA5 /* libPods-Korbe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Korbe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		45EA0AA9185CF0253208548C /* Pods-Korbe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Korbe.release.xcconfig"; path = "Target Support Files/Pods-Korbe/Pods-Korbe.release.xcconfig"; sourceTree = "<group>"; };
-		634EC0065AC4A3C8A2118B32 /* Pods-Korbe-KorbeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Korbe-KorbeTests.release.xcconfig"; path = "Target Support Files/Pods-Korbe-KorbeTests/Pods-Korbe-KorbeTests.release.xcconfig"; sourceTree = "<group>"; };
+		15022818C868A4B88F0EA86E /* Pods-Korbe-KorbeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Korbe-KorbeTests.release.xcconfig"; path = "Target Support Files/Pods-Korbe-KorbeTests/Pods-Korbe-KorbeTests.release.xcconfig"; sourceTree = "<group>"; };
+		1D838901D420A71C9FEEEEE9 /* Pods-Korbe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Korbe.release.xcconfig"; path = "Target Support Files/Pods-Korbe/Pods-Korbe.release.xcconfig"; sourceTree = "<group>"; };
+		270306E6CF369205B4C9A0A3 /* Pods-Korbe-KorbeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Korbe-KorbeTests.debug.xcconfig"; path = "Target Support Files/Pods-Korbe-KorbeTests/Pods-Korbe-KorbeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		40D37B67752C65F226AA0E16 /* Pods_Korbe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Korbe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Korbe/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B60E3499D4FAD49216AC512B /* libPods-Korbe-KorbeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Korbe-KorbeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3A84DDC25595062B781BC62 /* Pods-Korbe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Korbe.debug.xcconfig"; path = "Target Support Files/Pods-Korbe/Pods-Korbe.debug.xcconfig"; sourceTree = "<group>"; };
+		CFEA00FCE80F18177F53AEDA /* Pods_Korbe_KorbeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Korbe_KorbeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F59CFA982CD561B6B4A73084 /* Pods-Korbe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Korbe.debug.xcconfig"; path = "Target Support Files/Pods-Korbe/Pods-Korbe.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80B05E7C27E4EAAEFA9C485F /* libPods-Korbe-KorbeTests.a in Frameworks */,
+				E103C5B8D0AE1A4DBC467126 /* Pods_Korbe_KorbeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,7 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E936E0C2B32C51D86F452A4 /* libPods-Korbe.a in Frameworks */,
+				889DCE7435F25983CAD867AE /* Pods_Korbe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +83,18 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		063B5DF2F73A8DCDE049A633 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B3A84DDC25595062B781BC62 /* Pods-Korbe.debug.xcconfig */,
+				1D838901D420A71C9FEEEEE9 /* Pods-Korbe.release.xcconfig */,
+				270306E6CF369205B4C9A0A3 /* Pods-Korbe-KorbeTests.debug.xcconfig */,
+				15022818C868A4B88F0EA86E /* Pods-Korbe-KorbeTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		13B07FAE1A68108700A75B9A /* Korbe */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,22 +112,10 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				36C2A95E607B7AC928438EA5 /* libPods-Korbe.a */,
-				B60E3499D4FAD49216AC512B /* libPods-Korbe-KorbeTests.a */,
+				40D37B67752C65F226AA0E16 /* Pods_Korbe.framework */,
+				CFEA00FCE80F18177F53AEDA /* Pods_Korbe_KorbeTests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		53A87C444742A7C4797D8100 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F59CFA982CD561B6B4A73084 /* Pods-Korbe.debug.xcconfig */,
-				45EA0AA9185CF0253208548C /* Pods-Korbe.release.xcconfig */,
-				0CD60F5EB7D0C4CBEB29114F /* Pods-Korbe-KorbeTests.debug.xcconfig */,
-				634EC0065AC4A3C8A2118B32 /* Pods-Korbe-KorbeTests.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
 			sourceTree = "<group>";
 		};
 		7300ED342A304D14960B8684 /* Resources */ = {
@@ -141,8 +141,8 @@
 				00E356EF1AD99517003FC87E /* KorbeTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				53A87C444742A7C4797D8100 /* Pods */,
 				7300ED342A304D14960B8684 /* Resources */,
+				063B5DF2F73A8DCDE049A633 /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -165,12 +165,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "KorbeTests" */;
 			buildPhases = (
-				00149CAEA19C370E133E71AE /* [CP] Check Pods Manifest.lock */,
+				3DFF627DCCF921CFB17FA0EA /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				E9A81E84D719EFCD1DCA54A7 /* [CP] Embed Pods Frameworks */,
-				D4AB692E21EB183509CAD063 /* [CP] Copy Pods Resources */,
+				1963D3A82FF0D6644DB5DED6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -186,14 +185,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Korbe" */;
 			buildPhases = (
-				709325BC8ED1E3C37BB6EF2D /* [CP] Check Pods Manifest.lock */,
+				AAC6D348AADA0D004BA1298E /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				EC0ED2F300901A99B16B410C /* [CP] Embed Pods Frameworks */,
-				6F89305A3911E1A173605B97 /* [CP] Copy Pods Resources */,
+				797251A0B5FC4A3182B81C03 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -260,7 +258,38 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		00149CAEA19C370E133E71AE /* [CP] Check Pods Manifest.lock */ = {
+		00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bundle React Native code and images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
+		};
+		1963D3A82FF0D6644DB5DED6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Korbe-KorbeTests/Pods-Korbe-KorbeTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Korbe-KorbeTests/Pods-Korbe-KorbeTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Korbe-KorbeTests/Pods-Korbe-KorbeTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3DFF627DCCF921CFB17FA0EA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -282,21 +311,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Bundle React Native code and images";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
-		};
-		6F89305A3911E1A173605B97 /* [CP] Copy Pods Resources */ = {
+		797251A0B5FC4A3182B81C03 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -313,7 +328,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Korbe/Pods-Korbe-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		709325BC8ED1E3C37BB6EF2D /* [CP] Check Pods Manifest.lock */ = {
+		AAC6D348AADA0D004BA1298E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -333,57 +348,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D4AB692E21EB183509CAD063 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Korbe-KorbeTests/Pods-Korbe-KorbeTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Korbe-KorbeTests/Pods-Korbe-KorbeTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Korbe-KorbeTests/Pods-Korbe-KorbeTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E9A81E84D719EFCD1DCA54A7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Korbe-KorbeTests/Pods-Korbe-KorbeTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Korbe-KorbeTests/Pods-Korbe-KorbeTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Korbe-KorbeTests/Pods-Korbe-KorbeTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EC0ED2F300901A99B16B410C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Korbe/Pods-Korbe-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Korbe/Pods-Korbe-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Korbe/Pods-Korbe-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -438,7 +402,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0CD60F5EB7D0C4CBEB29114F /* Pods-Korbe-KorbeTests.debug.xcconfig */;
+			baseConfigurationReference = 270306E6CF369205B4C9A0A3 /* Pods-Korbe-KorbeTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -465,7 +429,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 634EC0065AC4A3C8A2118B32 /* Pods-Korbe-KorbeTests.release.xcconfig */;
+			baseConfigurationReference = 15022818C868A4B88F0EA86E /* Pods-Korbe-KorbeTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -489,7 +453,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F59CFA982CD561B6B4A73084 /* Pods-Korbe.debug.xcconfig */;
+			baseConfigurationReference = B3A84DDC25595062B781BC62 /* Pods-Korbe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -515,7 +479,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 45EA0AA9185CF0253208548C /* Pods-Korbe.release.xcconfig */;
+			baseConfigurationReference = 1D838901D420A71C9FEEEEE9 /* Pods-Korbe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
