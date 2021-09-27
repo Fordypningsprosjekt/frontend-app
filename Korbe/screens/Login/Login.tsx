@@ -1,3 +1,4 @@
+import { NavigationContainer } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { View } from 'react-native';
 import { Button, TextInput } from 'react-native-paper';
@@ -7,7 +8,7 @@ interface ILogin {
     password: string;
 }
 
-export default function Login() {
+export default function Login({navigation}) {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     //TODO: funksjon for å hente inn data senere og sjekker om brukeren finnes i databasem
@@ -36,7 +37,7 @@ export default function Login() {
             />
             <Button
                 mode="contained"
-                onPress={() => console.log('Pressed')}
+                onPress={() => navigation.navigate('Hjem')}
                 style={{ alignSelf: 'center', marginTop: '10%', width: '30%' }}
                 disabled={isEmpty()}
             >

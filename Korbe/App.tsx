@@ -18,6 +18,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './screens/Login/Login';
 import CreateAccount from './screens/CreateAccount/CreateAccount';
+import HomeScreen from './screens/Home/HomeScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -38,6 +39,7 @@ const App: () => Node = () => {
                         name="Opprett bruker"
                         component={CreateAccount}
                     />
+                    <Stack.Screen name="Hjem" component={HomeScreen}/>
                 </Stack.Navigator>
             </PaperProvider>
         </NavigationContainer>
