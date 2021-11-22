@@ -6,12 +6,10 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import type { Node } from 'react';
 
-import { useColorScheme } from 'react-native';
-
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { useColorScheme, View, Text } from 'react-native';
 import { Provider as PaperProvider } from 'react-native-paper';
 import StartPage from './screens/StartPage/StartPage';
 import { NavigationContainer } from '@react-navigation/native';
@@ -19,15 +17,16 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './screens/Login/Login';
 import CreateAccount from './screens/CreateAccount/CreateAccount';
 import HomeScreen from './screens/Home/HomeScreen';
+import NewTrip from './screens/NewTrip/NewTrip';
+import TrackingMap from './screens/TrackingMap';
+import DownloadMap from './screens/DownloadMap';
+import ScreenMap from './screens/ScreenMap';
+import SavedMaps from './screens/SavedMaps';
 
 const Stack = createNativeStackNavigator();
 
 const App: () => Node = () => {
     const isDarkMode = useColorScheme() === 'dark';
-
-    // const backgroundStyle = {
-    //   backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-    // };
 
     return (
         <NavigationContainer>
@@ -40,6 +39,11 @@ const App: () => Node = () => {
                         component={CreateAccount}
                     />
                     <Stack.Screen name="Hjem" component={HomeScreen}/>
+                    <Stack.Screen name='Ny oppsynstur' component={NewTrip}/>
+                    <Stack.Screen name='Aktiv oppsynstur' component={TrackingMap} />
+                    <Stack.Screen name='Last ned kart' component={DownloadMap} />
+                    <Stack.Screen name='Nedlastet kart' component={ScreenMap} />
+                    <Stack.Screen name='Velg kart' component={SavedMaps} />
                 </Stack.Navigator>
             </PaperProvider>
         </NavigationContainer>

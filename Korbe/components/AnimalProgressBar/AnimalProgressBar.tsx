@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, View } from 'react-native';
-import { ProgressBar } from 'react-native-paper';
+import { Button, IconButton, ProgressBar } from 'react-native-paper';
 
 interface IAnimalProgressBarProps{
     label: string;
@@ -15,6 +15,7 @@ export default function AnimalProgressBar(props: IAnimalProgressBarProps){
         <Text>{label}</Text>
         <ProgressBar progress={progress}/>
         <Text style={{textAlign:'right'}}>{progress*100+'%'}</Text>
+        {/* <IconButton style={{}} icon='arrow-right' onPress={() => console.log('Pressed')} /> */}
         </View>
     )
 }

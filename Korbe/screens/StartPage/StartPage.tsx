@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Image } from 'react-native';
 import { Button, Headline } from 'react-native-paper';
-
+import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth';
+import Login from '../Login/Login';
+import { useNavigation } from '@react-navigation/core';
 //TODO: Fikse typen til navigation sånn at det ikke er any
-export default function StartPage({ navigation}) {
+export default function StartPage() {
+    const navigation = useNavigation();
+
     return (
         <View style={{ marginTop: '50%' }}>
             <Headline style={{ textAlign: 'center' }}>Bæædar</Headline>
