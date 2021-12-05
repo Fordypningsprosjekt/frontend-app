@@ -12,7 +12,7 @@ import type { Node } from 'react';
 import { useColorScheme, View, Text } from 'react-native';
 import { Provider as PaperProvider } from 'react-native-paper';
 import StartPage from './screens/StartPage/StartPage';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './screens/Login/Login';
 import CreateAccount from './screens/CreateAccount/CreateAccount';
@@ -22,11 +22,28 @@ import TrackingMap from './screens/TrackingMap';
 import DownloadMap from './screens/DownloadMap';
 import ScreenMap from './screens/ScreenMap';
 import SavedMaps from './screens/SavedMaps';
+import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 
 const Stack = createNativeStackNavigator();
 
 const App: () => Node = () => {
     const isDarkMode = useColorScheme() === 'dark';
+    // const user = auth().currentUser;
+    // if(user){
+    //     navigation.navigate('Hjem');
+    // }
+    const [loading, setLoading] = useState<boolean>(true);
+    const [user, setUser] = useState<FirebaseAuthTypes.User | null>(null);
+
+    useEffect(()=> {
+        auth().onAuthStateChanged(userState => {
+            setUser(userState);
+
+            if(loading) {
+                setLoading(false);
+            }
+        })
+    }, []);
 
     return (
         <NavigationContainer>
