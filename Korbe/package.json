@@ -2,6 +2,7 @@
     "name": "korbe",
     "version": "0.0.1",
     "private": true,
+    "main": "/Users/mariavu/Documents/5.klasse/Fordypningsprosjekt/frontend-app/Korbe/index.js",
     "scripts": {
         "android": "react-native run-android",
         "ios": "react-native run-ios",

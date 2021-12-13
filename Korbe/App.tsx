@@ -8,7 +8,6 @@
 
 import React, { useState, useEffect } from 'react';
 import type { Node } from 'react';
-
 import { useColorScheme, View, Text } from 'react-native';
 import { Provider as PaperProvider } from 'react-native-paper';
 import StartPage from './screens/StartPage/StartPage';
@@ -23,6 +22,7 @@ import DownloadMap from './screens/DownloadMap';
 import ScreenMap from './screens/ScreenMap';
 import SavedMaps from './screens/SavedMaps';
 import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
+
 
 const Stack = createNativeStackNavigator();
 

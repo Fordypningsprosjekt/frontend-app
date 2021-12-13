@@ -4,6 +4,7 @@ import { Headline, Title } from 'react-native-paper';
 import AnimalProgressBar from '../../components/AnimalProgressBar/AnimalProgressBar';
 import RoundIconButton from '../../components/RoundIconButton/RoundIconButton';
 
+
 export default function HomeScreen(){
     return( 
     <View>
