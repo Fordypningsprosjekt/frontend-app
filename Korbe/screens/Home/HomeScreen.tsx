@@ -3,9 +3,19 @@ import {StyleSheet, Text, View } from 'react-native';
 import { Headline, Title } from 'react-native-paper';
 import AnimalProgressBar from '../../components/AnimalProgressBar/AnimalProgressBar';
 import RoundIconButton from '../../components/RoundIconButton/RoundIconButton';
-
+import auth from '@react-native-firebase/auth';
+import { useNavigation } from '@react-navigation/native';
 
 export default function HomeScreen(){
+    const navigation = useNavigation(); 
+    
+    const signOut = () => {
+        auth()
+        .signOut()
+        .then(() => {
+        console.log('User signed out!');
+        navigation.navigate('Innlogging');});
+    }
     return( 
     <View>
         <Headline style={styles.headline}>
@@ -32,7 +42,7 @@ export default function HomeScreen(){
                 </View>
             </View>
             <View style={styles.buttonContainer}>
-            <RoundIconButton iconName='logout-variant' buttonText='Logg ut' screen='Innlogging'/>
+            <RoundIconButton iconName='logout-variant' buttonText='Logg ut' onPress={signOut} />
             </View>
     </View>)
    

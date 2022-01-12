@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 import { Button, Headline, TextInput, HelperText } from 'react-native-paper';
 import SearchableDropdown from 'react-native-searchable-dropdown';
-
-const items = [{id:1, name: 'hei'}, {id:2, name: 'hei2'}, {id:3, name: 'hei3'}]
+import auth from '@react-native-firebase/auth';
 
 export default function CreateAccount({navigation}) {
     //TODO: Finne en bedre måte å sette disse verdiene på
@@ -31,6 +30,26 @@ export default function CreateAccount({navigation}) {
     const hasNotFilledOut = () => {
         return name==='' || email ==='' || city==='' || farmNumber==='' || password==='' || password2==='';
     }
+
+    const checkUser = () => {
+        auth()
+        .createUserWithEmailAndPassword(email,password)
+        .then(()=> {
+            console.log('User account created & signed in');
+            navigation.navigate('Innlogging');
+        })
+        .catch(error => {
+            if (error.code === 'auth/email-already-in-use') {
+                console.log('That email address is already in use!');
+            }
+            if(error.code === 'auth/invalid-email'){
+                emailError();
+                console.log('That email is invalid!');
+            }
+            console.error(error);
+        })
+    }
+    
 
     return (
         <View>
@@ -72,7 +91,7 @@ export default function CreateAccount({navigation}) {
             <HelperText 
                 type="error" visible={passwordError()}>Passordene er ikke like!
                 </HelperText>
-            <Button mode='contained' disabled={hasNotFilledOut()} onPress={()=> navigation.navigate('Innlogging')}>
+            <Button mode='contained' disabled={hasNotFilledOut()} onPress={checkUser}>
                 Opprett bruker</Button>
         </View>
     );

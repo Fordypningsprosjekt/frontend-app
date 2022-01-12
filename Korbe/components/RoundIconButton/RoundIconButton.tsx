@@ -6,7 +6,8 @@ import { IconButton } from 'react-native-paper';
 interface IRoundIconButtonProps{
     iconName: string;
     buttonText: string;
-    screen: string;
+    screen?: string;
+    onPress?: () => void;
 }
 
 export default function RoundIconButton(props: IRoundIconButtonProps){
