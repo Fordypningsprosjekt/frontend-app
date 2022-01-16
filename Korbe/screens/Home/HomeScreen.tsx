@@ -14,7 +14,8 @@ export default function HomeScreen(){
         .signOut()
         .then(() => {
         console.log('User signed out!');
-        navigation.navigate('Innlogging');});
+        navigation.navigate('Startside');
+    });
     }
     return( 
     <View>
@@ -23,11 +24,11 @@ export default function HomeScreen(){
         </Headline>
         <View style={styles.container}>
         <View style={styles.section}>
-        <RoundIconButton iconName='walk' buttonText='Ny oppsynstur' screen='Ny oppsynstur'/></View>
+        <RoundIconButton iconName='walk' buttonText='Ny oppsynstur' onPress={() => navigation.navigate('Ny oppsynstur')}/></View>
         <View style={styles.section}>
-        <RoundIconButton iconName='folder-open' buttonText='Lagrede turer' screen='Hjem'/></View>
+        <RoundIconButton iconName='folder-open' buttonText='Lagrede turer' onPress={() => navigation.navigate('Hjem')}/></View>
         <View style={styles.section}>
-        <RoundIconButton iconName='map' buttonText='Last ned kart' screen='Last ned kart'/>
+        <RoundIconButton iconName='map' buttonText='Last ned kart' onPress={() => navigation.navigate('Last ned kart')}/>
             </View></View>
             <View style={styles.progressBarContainer}>
                 <Title style={styles.progressBarTitle}>Siste tilsynstur</Title>

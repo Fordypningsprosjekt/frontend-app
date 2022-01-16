@@ -6,14 +6,13 @@ import { IconButton } from 'react-native-paper';
 interface IRoundIconButtonProps{
     iconName: string;
     buttonText: string;
-    screen?: string;
-    onPress?: () => void;
+    onPress: () => void;
 }
 
 export default function RoundIconButton(props: IRoundIconButtonProps){
-    const {iconName, buttonText, screen} = props;
-    const navigation = useNavigation(); 
-
+    const {iconName, buttonText, onPress} = props;
+    const navigation = useNavigation();
+    
     return(
         <View style={{alignItems:'center'}}>
         <TouchableOpacity style={{
@@ -26,7 +25,7 @@ export default function RoundIconButton(props: IRoundIconButtonProps){
             backgroundColor:'#fff',
             borderRadius:50,
           }}>
-                 <IconButton icon={iconName} onPress={()=>navigation.navigate(screen)}/>
+                 <IconButton icon={iconName} onPress={onPress}/>
              </TouchableOpacity>
              <Text style={{textAlign:'center'}}>{buttonText}</Text>
              </View>
