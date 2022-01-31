@@ -38,8 +38,8 @@ export default function DownloadMap(){
     <Map />
     <ViewShot>
     <View>
-            <Button mode="outlined" onPress={captureScreenShot}>Ta bilde</Button>
-            <Button mode='outlined' onPress={handleButton}>Se kart</Button>
+            {/* <Button mode="outlined" onPress={captureScreenShot}>Ta bilde</Button>
+            <Button mode='outlined' onPress={handleButton}>Se kart</Button> */}
           </View>
     </ViewShot>
     </>

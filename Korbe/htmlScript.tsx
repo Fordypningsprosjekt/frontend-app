@@ -21,13 +21,12 @@ const htmlScript =
     <form class="form-inline">
       <label for="type">Shape type: &nbsp;</label>
       <select class="form-control mr-2 mb-2 mt-2" id="type">
+        <option value="Polygon">Polygon</option>
         <option value="Circle">Circle</option>
-        <option value="Box">Box</option>
-        <option value="None">None</option>
       </select>
       <input class="form-control mr-2 mb-2 mt-2" type="button" value="Undo" id="undo">
     </form>
-    
+
     <script type="text/javascript">
 
         // OpenStreetMap Layer
@@ -42,54 +41,90 @@ const htmlScript =
                 attributions: '<a href="http://www.kartverket.no/">Kartverket</a>'
             })
         })
-
-        const source = new ol.source.Vector({wrapX: false});
+        // var geoDataUrl = '/data/' + '{{percorso._id}}' + '.json';
+        const source = new ol.source.Vector();
         const vector = new ol.layer.Vector({
             source: source,
+            // url: geoDataUrl,
+            format: new ol.format.GeoJSON(),
+            style: new ol.style.Style({
+                fill: new ol.style.Fill({
+                    color: 'rgba(255, 255, 255, 0.2)',
+                }),
+                stroke: new ol.style.Stroke({
+                    color: '#BF0404',
+                    width: 2,
+                }),
+                image: new ol.style.Circle({
+                    radius: 7,
+                    fill: new ol.style.Fill({
+                        color: '#BF0404',
+                    })
+                })
+            })
         });
+
+        const extent = ol.proj.get('EPSG:3857').getExtent().slice();
+        extent[0] += extent[0];
+        extent[2] += extent[2];
 
         var map = new ol.Map({
             target: 'map',
             layers: [osm, nk, vector],
             view: new ol.View({
-                center: ol.proj.fromLonLat([13.41, 65.42]),
-                zoom: 6
-            })
+                center: ol.proj.transform([13.41, 65.42], 'EPSG:4326', 'EPSG:3857'),
+                zoom: 6,
+                extent,
+            }),
         });
 
-        // draw a circle
+        const modify = new ol.interaction.Modify({source: source});
+        map.addInteraction(modify);
+
+        let draw, snap;
         const typeSelect = document.getElementById('type');
 
-        let draw;
-        function addInteraction(){
-            let value = typeSelect.value;
-            if (value !== 'None'){
-                let geometryFunction;
-                if (value === 'Box'){
-                    value = 'Circle';
-                    geometryFunction = ol.interaction.Draw.createBox();
-                } 
-                draw = new ol.interaction.Draw({
-                    source: source,
-                    type: value,
-                    geometryFunction: geometryFunction,
+        function addInteractions(){
+            draw = new ol.interaction.Draw({
+                source: source,
+                type: typeSelect.value,
+            });
+
+            //storing as geoJSON format
+            draw.on('drawend', function(e){
+                var geom = [];
+                ol.source.Vector().forEachFeature(function(feature){
+                    geom.push(new ol.Feature(feature.getGeometry().clone().transform('EPSG:4326', 'EPSG:3857')))
                 });
-                map.addInteraction(draw);
-            }
+                var writer = new ol.format.GeoJSON();
+                var geoJsonStr = writer.writeFeatures(geom, {featureProjection: 'EPSG:3857'});
+                console.log(geoJsonStr);
+                geom = e.feature.getGeometry().transform('EPSG:3857', 'EPSG:4326');
+                console.log(geom.getCoordinates())
+                // features.push(f);
+                // geoJson = new ol.format.GeoJSON().writeFeatures(features, {featureProjection: 'EPSG:3857'});
+                // console.log(geoJson);
+                // document.getElementById('js-teaxtarea').value = geoJson;
+            });
+            map.addInteraction(draw);
+            snap = new ol.interaction.Snap({source: source});
+            map.addInteraction(snap);
+
         }
         /**
          * Handle change event.
          */
         typeSelect.onchange = function () {
         map.removeInteraction(draw);
-        addInteraction();
+        map.removeInteraction(snap)
+        addInteractions();
         };
 
-        document.getElementById('undo').addEventListener('click', function () {
-        draw.removeLastPoint();
-        });
+        // document.getElementById('undo').addEventListener('click', function () {
+        // draw.removeLastPoint();
+        // });
 
-        addInteraction();
+        addInteractions();
     </script>
 </body>
 
