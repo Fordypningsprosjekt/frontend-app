@@ -41,11 +41,11 @@ const htmlScript =
                 attributions: '<a href="http://www.kartverket.no/">Kartverket</a>'
             })
         })
-        // var geoDataUrl = '/data/' + '{{percorso._id}}' + '.json';
+        var geoDataUrl = '/data/' + '{{percorso._id}}' + '.json';
         const source = new ol.source.Vector();
         const vector = new ol.layer.Vector({
             source: source,
-            // url: geoDataUrl,
+            url: geoDataUrl,
             format: new ol.format.GeoJSON(),
             style: new ol.style.Style({
                 fill: new ol.style.Fill({
@@ -91,20 +91,19 @@ const htmlScript =
             });
 
             //storing as geoJSON format
-            draw.on('drawend', function(e){
-                var geom = [];
-                ol.source.Vector().forEachFeature(function(feature){
-                    geom.push(new ol.Feature(feature.getGeometry().clone().transform('EPSG:4326', 'EPSG:3857')))
-                });
-                var writer = new ol.format.GeoJSON();
-                var geoJsonStr = writer.writeFeatures(geom, {featureProjection: 'EPSG:3857'});
-                console.log(geoJsonStr);
-                geom = e.feature.getGeometry().transform('EPSG:3857', 'EPSG:4326');
-                console.log(geom.getCoordinates())
-                // features.push(f);
-                // geoJson = new ol.format.GeoJSON().writeFeatures(features, {featureProjection: 'EPSG:3857'});
-                // console.log(geoJson);
-                // document.getElementById('js-teaxtarea').value = geoJson;
+            var features = source.getFeaturesCollection();
+            draw.on('drawend', (e) => {
+                // let parser = new ol.format.GeoJSON();
+                // let area = parser.writeFeatureObject(e.feature, {featureProjection: 'EPSG:3857'});
+                // console.log(area);
+                
+                features.push(e.feature);
+                geoJson = new ol.format.GeoJSON().writeFeatures(features, {featureProjection: 'EPSG:3857'});
+                console.log(geoJson);
+                document.getElementById('js-textarea').value = geoJson;
+                var jsonString = JSON.stringify(geoJson);
+                var fs = require('fs');
+                fs.writeFile("thing.json", jsonString);
             });
             map.addInteraction(draw);
             snap = new ol.interaction.Snap({source: source});
