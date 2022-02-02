@@ -41,11 +41,10 @@ const htmlScript =
                 attributions: '<a href="http://www.kartverket.no/">Kartverket</a>'
             })
         })
-        var geoDataUrl = '/data/' + '{{percorso._id}}' + '.json';
+        // var geoDataUrl = '/data/' + '{{percorso._id}}' + '.json';
         const source = new ol.source.Vector();
         const vector = new ol.layer.Vector({
             source: source,
-            url: geoDataUrl,
             format: new ol.format.GeoJSON(),
             style: new ol.style.Style({
                 fill: new ol.style.Fill({
@@ -81,7 +80,7 @@ const htmlScript =
         const modify = new ol.interaction.Modify({source: source});
         map.addInteraction(modify);
 
-        let draw, snap;
+        let draw, snap, area;
         const typeSelect = document.getElementById('type');
 
         function addInteractions(){
@@ -92,24 +91,25 @@ const htmlScript =
 
             //storing as geoJSON format
             var features = source.getFeaturesCollection();
-            draw.on('drawend', (e) => {
-                // let parser = new ol.format.GeoJSON();
-                // let area = parser.writeFeatureObject(e.feature, {featureProjection: 'EPSG:3857'});
-                // console.log(area);
+            draw.on('drawend', function(e) {
+                let parser = new ol.format.GeoJSON();
+                console.log(parser);
+                area = parser.writeFeatureObject(e.feature, {featureProjection: 'EPSG:3857'});
+                console.log(area);
                 
-                features.push(e.feature);
-                geoJson = new ol.format.GeoJSON().writeFeatures(features, {featureProjection: 'EPSG:3857'});
-                console.log(geoJson);
-                document.getElementById('js-textarea').value = geoJson;
-                var jsonString = JSON.stringify(geoJson);
-                var fs = require('fs');
-                fs.writeFile("thing.json", jsonString);
+                // features.push(e.feature);
+                // geoJson = new ol.format.GeoJSON().writeFeatures(features, {featureProjection: 'EPSG:3857'});
+                // console.log(geoJson);
+                // document.getElementById('js-textarea').value = geoJson;
+                
             });
             map.addInteraction(draw);
             snap = new ol.interaction.Snap({source: source});
             map.addInteraction(snap);
 
         }
+        
+
         /**
          * Handle change event.
          */
@@ -124,6 +124,14 @@ const htmlScript =
         // });
 
         addInteractions();
+
+        var jsonString = JSON.stringify(area);
+        var fs = require('fs');
+        fs.writeFile("thing.json", area, 'utf8', function(err){
+            if(err){
+                console.log(err);
+            }
+        });
     </script>
 </body>
 
