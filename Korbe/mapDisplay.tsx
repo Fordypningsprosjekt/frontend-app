@@ -26,7 +26,7 @@ const mapDisplay =
     <div>
     <p id="text">he</p>
     </div>
-    <script  type="text/javascript">
+    <script id="mapDisplay" type="text/javascript">
         // OpenStreetMap Layer
         const osm = new ol.layer.Tile({
             source: new ol.source.OSM()
@@ -82,24 +82,10 @@ const mapDisplay =
         const typeSelect = document.getElementById('type');
 
         function addInteractions(){
-            draw = new ol.interaction.Draw({
-                source: source,
-                type: typeSelect.value,
-            });
+            
 
             //storing as geoJSON format
-            var features = source.getFeaturesCollection();
-            draw.on('drawend', function(e) {
-                let parser = new ol.format.GeoJSON();
-                console.log(parser);
-                area = parser.writeFeatureObject(e.feature, {featureProjection: 'EPSG:3857'});
-                
-                
-                var jsonString = JSON.stringify(area);
-                // alert(jsonString);
-                window.ReactNativeWebView.postMessage(jsonString);
-                
-                
+            
             });
             map.addInteraction(draw);
             snap = new ol.interaction.Snap({source: source});

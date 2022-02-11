@@ -102,7 +102,6 @@ const htmlScript =
                 
                 
                 var jsonString = JSON.stringify(area);
-                // alert(jsonString);
                 window.ReactNativeWebView.postMessage(jsonString);
                 
                 

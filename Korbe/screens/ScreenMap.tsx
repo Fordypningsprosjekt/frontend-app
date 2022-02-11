@@ -5,25 +5,27 @@ import { Button, Modal } from "react-native-paper";
 import WebView from "react-native-webview";
 import mapDisplay from "../mapDisplay";
 import firestore from '@react-native-firebase/firestore';
+import auth from '@react-native-firebase/auth';
 
 
 export default function screenMap(){
 
     const date = new Date();
     
-    const fetchData = () => {
-        firestore()
-        .collection('maps')
-        .where('date', '<=', date)
-        .limit(1)
-        .get()
-        .then(querySnapShot => {
-            querySnapShot.forEach(documentSnapShot => {
-                console.log("json string:", documentSnapShot.data())
-            })
+    firestore()
+    .collection('maps')
+    .where('date', '<=', date)
+    .where('uid', '==',auth().currentUser?.uid )
+    .limit(1)
+    .get()
+    .then(querySnapShot => {
+        querySnapShot.forEach(documentSnapShot => {
+            console.log("json string:", documentSnapShot.data())
         })
+    })
 
-    }
+    const jsCode = '
+    ';
    
     return(
         <>
