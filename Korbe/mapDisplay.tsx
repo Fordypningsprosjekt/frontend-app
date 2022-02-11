@@ -1,5 +1,5 @@
 
-const htmlScript =
+const mapDisplay =
 `
 <html lang="en">
 
@@ -21,12 +21,6 @@ const htmlScript =
 <body>
     <div id="map" class="map"></div>
     <form class="form-inline">
-      <label for="type">Shape type: &nbsp;</label>
-      <select class="form-control mr-2 mb-2 mt-2" id="type">
-        <option value="Polygon">Polygon</option>
-        <option value="Circle">Circle</option>
-      </select>
-      <input class="form-control mr-2 mb-2 mt-2" type="button" value="Undo" id="undo">
     </form>
     <button onclick="addInteractions()"> Beskjær </button>
     <div>
@@ -136,4 +130,4 @@ const htmlScript =
 </html>
 `
 
-export default htmlScript
+export default mapDisplay;
