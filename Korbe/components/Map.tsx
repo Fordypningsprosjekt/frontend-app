@@ -56,7 +56,7 @@ export default function Map() {
           <Button 
           mode='contained'
           onPress={onButtonChange}
-          style={styles.buttonStyle}>Last ned kart!</Button>
+          style={styles.buttonStyle}>Beskjær kart!</Button>
       </>
   );
   

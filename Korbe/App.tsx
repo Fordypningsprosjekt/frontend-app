@@ -22,6 +22,7 @@ import DownloadMap from './screens/DownloadMap';
 import ScreenMap from './screens/ScreenMap';
 import SavedMaps from './screens/SavedMaps';
 import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
+import SuccessfulMap from './screens/SuccessfulMap';
 
 
 const Stack = createNativeStackNavigator();
@@ -61,6 +62,7 @@ const App: () => Node = () => {
                 <Stack.Screen name='Last ned kart' component={DownloadMap} />
                 <Stack.Screen name='Nedlastet kart' component={ScreenMap} />
                 <Stack.Screen name='Velg kart' component={SavedMaps} />
+                
             </Stack.Navigator>
             </NavigationContainer>
         </PaperProvider>

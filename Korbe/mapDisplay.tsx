@@ -22,9 +22,7 @@ const mapDisplay =
     <div id="map" class="map"></div>
     <form class="form-inline">
     </form>
-    <button onclick="addInteractions()"> Beskjær </button>
     <div>
-    <p id="text">he</p>
     </div>
     <script id="mapDisplay" type="text/javascript">
         // OpenStreetMap Layer
@@ -39,27 +37,26 @@ const mapDisplay =
                 attributions: '<a href="http://www.kartverket.no/">Kartverket</a>'
             })
         })
-        // var geoDataUrl = '/data/' + '{{percorso._id}}' + '.json';
-        const source = new ol.source.Vector();
-        const vector = new ol.layer.Vector({
-            source: source,
-            format: new ol.format.GeoJSON(),
-            style: new ol.style.Style({
-                fill: new ol.style.Fill({
-                    color: 'rgba(255, 255, 255, 0.2)',
-                }),
-                stroke: new ol.style.Stroke({
-                    color: '#BF0404',
-                    width: 2,
-                }),
-                image: new ol.style.Circle({
-                    radius: 7,
-                    fill: new ol.style.Fill({
-                        color: '#BF0404',
-                    })
-                })
-            })
-        });
+        // const source = new ol.source.Vector();
+        // const vector = new ol.layer.Vector({
+        //     source: source,
+        //     format: new ol.format.GeoJSON(),
+        //     style: new ol.style.Style({
+        //         fill: new ol.style.Fill({
+        //             color: 'rgba(255, 255, 255, 0.2)',
+        //         }),
+        //         stroke: new ol.style.Stroke({
+        //             color: '#BF0404',
+        //             width: 2,
+        //         }),
+        //         image: new ol.style.Circle({
+        //             radius: 7,
+        //             fill: new ol.style.Fill({
+        //                 color: '#BF0404',
+        //             })
+        //         })
+        //     })
+        // });
 
         const extent = ol.proj.get('EPSG:3857').getExtent().slice();
         extent[0] += extent[0];
@@ -67,7 +64,7 @@ const mapDisplay =
 
         var map = new ol.Map({
             target: 'map',
-            layers: [osm, nk, vector],
+            layers: [osm, nk],
             view: new ol.View({
                 center: ol.proj.transform([13.41, 65.42], 'EPSG:4326', 'EPSG:3857'),
                 zoom: 6,
@@ -75,39 +72,39 @@ const mapDisplay =
             }),
         });
 
-        const modify = new ol.interaction.Modify({source: source});
-        map.addInteraction(modify);
+        // const modify = new ol.interaction.Modify({source: source});
+        // map.addInteraction(modify);
 
-        let draw, snap, area;
-        const typeSelect = document.getElementById('type');
+        // let draw, snap, area;
+        // const typeSelect = document.getElementById('type');
 
-        function addInteractions(){
+        // function addInteractions(){
             
 
-            //storing as geoJSON format
+        //     //storing as geoJSON format
             
-            });
-            map.addInteraction(draw);
-            snap = new ol.interaction.Snap({source: source});
-            map.addInteraction(snap);
+        //     });
+        //     map.addInteraction(draw);
+        //     snap = new ol.interaction.Snap({source: source});
+        //     map.addInteraction(snap);
 
-        }
+        // }
 
 
-        /**
-         * Handle change event.
-         */
-        typeSelect.onchange = function () {
-        map.removeInteraction(draw);
-        map.removeInteraction(snap)
-        addInteractions();
-        };
+        // /**
+        //  * Handle change event.
+        //  */
+        // typeSelect.onchange = function () {
+        // map.removeInteraction(draw);
+        // map.removeInteraction(snap)
+        // addInteractions();
+        // };
 
-        // document.getElementById('undo').addEventListener('click', function () {
-        // draw.removeLastPoint();
-        // });
+        // // document.getElementById('undo').addEventListener('click', function () {
+        // // draw.removeLastPoint();
+        // // });
 
-        addInteractions();
+        // addInteractions();
 
     </script>
     

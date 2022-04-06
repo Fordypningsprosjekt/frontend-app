@@ -32,7 +32,7 @@ const htmlScript =
     <div>
     <p id="text">he</p>
     </div>
-    <script  type="text/javascript">
+    <script type="text/javascript">
         // OpenStreetMap Layer
         const osm = new ol.layer.Tile({
             source: new ol.source.OSM()
@@ -100,10 +100,8 @@ const htmlScript =
                 console.log(parser);
                 area = parser.writeFeatureObject(e.feature, {featureProjection: 'EPSG:3857'});
                 
-                
                 var jsonString = JSON.stringify(area);
                 window.ReactNativeWebView.postMessage(jsonString);
-                
                 
             });
             map.addInteraction(draw);

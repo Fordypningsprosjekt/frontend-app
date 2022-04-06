@@ -22,7 +22,6 @@ export default function SavedMaps(){
                 right={()=><IconButton icon='arrow-right-thick' onPress={onPress} />}
                 style={styles.cardStyle}/>
             </View>
-
         </View>
     )
 }
