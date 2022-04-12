@@ -6,3 +6,8 @@ export interface IUser{
     farm_number: string,
     password: string
 }
+
+export interface IMaps{
+    setAddedMap: () => void,
+    addedMaps: string[];
+}

@@ -14,18 +14,6 @@ import { Button } from 'react-native-paper';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 import { useNavigation } from '@react-navigation/native';
-interface IMapProps{
-  
-
-}
-
-type cropData = {
-  offset: { x: number, y: number },
-  size: { width: number, height: number },
-  displaySize: { width: number, height: number },
-  resizeMode: 'contain/cover/stretch'
-}
-
 
 export default function Map() {
   const navigation = useNavigation();

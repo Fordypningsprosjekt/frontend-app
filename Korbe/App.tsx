@@ -18,11 +18,11 @@ import CreateAccount from './screens/CreateAccount/CreateAccount';
 import HomeScreen from './screens/Home/HomeScreen';
 import NewTrip from './screens/NewTrip/NewTrip';
 import TrackingMap from './screens/TrackingMap';
-import DownloadMap from './screens/DownloadMap';
 import ScreenMap from './screens/ScreenMap';
 import SavedMaps from './screens/SavedMaps';
 import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
-import SuccessfulMap from './screens/SuccessfulMap';
+import Map from './screens/Map';
+import DownloadedMap from './screens/DownloadedMap';
 
 
 const Stack = createNativeStackNavigator();
@@ -59,9 +59,10 @@ const App: () => Node = () => {
                 <Stack.Screen name="Hjem" component={HomeScreen}/>
                 <Stack.Screen name='Ny oppsynstur' component={NewTrip}/>
                 <Stack.Screen name='Aktiv oppsynstur' component={TrackingMap} />
-                <Stack.Screen name='Last ned kart' component={DownloadMap} />
+                <Stack.Screen name='Last ned kart' component={Map} />
                 <Stack.Screen name='Nedlastet kart' component={ScreenMap} />
                 <Stack.Screen name='Velg kart' component={SavedMaps} />
+                <Stack.Screen name='Bruk kartet' component={DownloadedMap} />
                 
             </Stack.Navigator>
             </NavigationContainer>
