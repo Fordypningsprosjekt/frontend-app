@@ -5,67 +5,50 @@ import { Card, Headline, IconButton } from "react-native-paper";
 import DisplayMap from "../components/DisplayMap";
 import firestore from '@react-native-firebase/firestore';
 import auth, { firebase } from '@react-native-firebase/auth';
-interface SavedMapsProps{
-    mapTitle: string,
-    navigationMap: string
-}
 
 export default function SavedMaps(props: SavedMapsProps){
-    const {mapTitle, navigationMap} = props;
     const navigation = useNavigation();
-    const fieldPath = new firestore.FieldPath('data');
-    const [addedItems, setAddedItems] = useState<string[]>([]);
-    
+    const [mapTitle, setMapTitle] = useState('');
+    const nameFieldPath = new firestore.FieldPath('areaName')
+
     useEffect(() => {getMapData();}, [])
-    
     const getMapData = () => {
         const mapData =
         firestore()
         .collection('maps')
         .where('uid', '==',auth().currentUser?.uid)
         .orderBy('date', 'desc')
+        .limit(1)
         .get()
         .then( querySnapshot => {
-            let geoList=[''];
+            let  areaName;
             querySnapshot.forEach(documentSnapshot => {
                 if(documentSnapshot.exists){
-                    geoList.push(documentSnapshot.get(fieldPath));
-                    // console.log('data:', jsonString)
-    
+                    areaName = documentSnapshot.get(nameFieldPath);
+                    console.log('areaName', areaName);
                 }
-                
             })
-            // console.log('data:'+jsonStrings);
-            return geoList;
+            return areaName;
             }
             
         )
         .catch(e => console.error(e));
         
-        mapData.then(((a) => {a? setAddedItems(a): console.log('Object undefined'); }))
-    };
-    console.log('data: ' + addedItems);
-    // getMapData();
-
-    const onPress = ()=> {
-        navigation.navigate(navigationMap);
-    }
-    
-    addedItems.length;
+        mapData.then((a) => {a? setMapTitle(a): console.log('Object undefined'); })
+    };   
+    console.log('mapName: ' + mapTitle);
+    getMapData();
     return(
         <View>
             <Headline style={styles.headlineStyle}>Velg kartet du skal bruke</Headline>
             <View style={styles.container}>
-            {addedItems?.map((addedItem: string, key: number) => (
                 <View style={styles.section}>
                 <Card.Title 
-                title={addedItem} 
-                right={()=><IconButton icon='arrow-right-thick' onPress={onPress} />}
+                title={mapTitle}
+                right={()=><IconButton icon='arrow-right-thick' onPress={() => navigation.navigate("Bruk kartet")} />}
                 style={styles.cardStyle}
-                key = {key}
                 />
                 </View>
-                ))}
             </View>
         </View>
     )

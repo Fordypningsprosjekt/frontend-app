@@ -1,54 +1,53 @@
-import { useNavigation } from '@react-navigation/core';
-import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { BottomNavigation, Modal } from 'react-native-paper';
-import HomeScreen from './Home/HomeScreen';
+import { useEffect, useState } from "react";
+import firestore from '@react-native-firebase/firestore';
+import auth, { firebase } from '@react-native-firebase/auth';
+import React from "react";
+import DisplayMap from "../components/DisplayMap";
+import { Button } from "react-native-paper";
+import { useNavigation } from "@react-navigation/native";
 
-export default function TrackingMap() {
+export default function TrackingMap(){
     const navigation = useNavigation();
+    const fieldPath = new firestore.FieldPath('data');
+    const [data, setData] = useState();
     
-    const [modalVisbile, setModalVisible] = useState(false);
-    const showModal = () => setModalVisible(true);
-    const hideModal = () => setModalVisible(false);
-
-    const containerStyle = {backgroundColor: 'white', padding: 20};
-
-    const HomeRoute =()=> <Text>Hjem</Text>
-    const MapRoute =()=> <Text>Kart</Text>
-    const OverviewRoute =()=> <Text>Antall registrert</Text>
-    const EndTripRoute =()=> <Modal visible={modalVisbile} onDismiss={hideModal} contentContainerStyle={containerStyle}>
-    <Text>Er du sikker?</Text>
-    </Modal>
+    useEffect(() => {getMapData();}, [])
     
-
-    const [index, setIndex] = useState(0);
-    const [routes] = useState([
-        { key: 'home', title: 'Hjem', icon: 'home-outline' },
-    { key: 'map', title: 'Kart og GPS', icon: 'map' },
-    { key: 'overview', title: 'Antall registrert', icon: 'format-list-bulleted' },
-    {key: 'end', title: 'Avslutt tur', icon: 'close'}
-    ])
-
-    const renderScene = BottomNavigation.SceneMap({
-        home: HomeRoute,
-        map: MapRoute,
-        overview: OverviewRoute,
-        end: EndTripRoute,
-      });
+    const getMapData = () => {
+        const mapData =
+        firestore()
+        .collection('maps')
+        .where('uid', '==',auth().currentUser?.uid)
+        .orderBy('date', 'desc')
+        .limit(1)
+        .get()
+        .then( querySnapshot => {
+            let jsonString;
+            querySnapshot.forEach(documentSnapshot => {
+                if(documentSnapshot.exists){
+                    jsonString = documentSnapshot.get(fieldPath);
+                    console.log('data:', jsonString)
+                }
+            })
+            return jsonString;
+            }
+            
+        )
+        .catch(e => console.error(e));
+        
+        mapData.then((a) => {a? setData(a): console.log('Object undefined'); })
+    };   
+    console.log('data: ' + data);
+    getMapData();
 
     return(
-        <BottomNavigation
-        onTabPress={showModal}
-        navigationState={{ index, routes }}
-      onIndexChange={setIndex}
-      renderScene={renderScene}
-        />
-        
+        <>
+        <DisplayMap data={data} /> 
+        <Button mode="contained"
+        onPress={()=>navigation.navigate('Antall sau og lam')}>
+            Registrer
+            </Button>
+        </>
     )
-}
 
-const styles = StyleSheet.create({
-    textStyle: {
-        color: 'white',
-    }
-})
+}

@@ -17,12 +17,13 @@ import Login from './screens/Login/Login';
 import CreateAccount from './screens/CreateAccount/CreateAccount';
 import HomeScreen from './screens/Home/HomeScreen';
 import NewTrip from './screens/NewTrip/NewTrip';
-import TrackingMap from './screens/TrackingMap';
+import TripTracking from './screens/TripTracking';
 import ScreenMap from './screens/ScreenMap';
 import SavedMaps from './screens/SavedMaps';
 import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import Map from './screens/Map';
 import DownloadedMap from './screens/DownloadedMap';
+import RegisterSheep from './screens/Registration/RegisterSheep';
 
 
 const Stack = createNativeStackNavigator();
@@ -58,12 +59,12 @@ const App: () => Node = () => {
                 />
                 <Stack.Screen name="Hjem" component={HomeScreen}/>
                 <Stack.Screen name='Ny oppsynstur' component={NewTrip}/>
-                <Stack.Screen name='Aktiv oppsynstur' component={TrackingMap} />
+                <Stack.Screen name='Aktiv oppsynstur' component={TripTracking} />
                 <Stack.Screen name='Last ned kart' component={Map} />
                 <Stack.Screen name='Nedlastet kart' component={ScreenMap} />
                 <Stack.Screen name='Velg kart' component={SavedMaps} />
                 <Stack.Screen name='Bruk kartet' component={DownloadedMap} />
-                
+                <Stack.Screen name='Antall sau og lam' component={RegisterSheep} />
             </Stack.Navigator>
             </NavigationContainer>
         </PaperProvider>

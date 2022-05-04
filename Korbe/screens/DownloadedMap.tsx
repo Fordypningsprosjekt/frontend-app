@@ -3,11 +3,12 @@ import { useNavigation } from "@react-navigation/native";
 import DisplayMap from "../components/DisplayMap";
 import firestore from '@react-native-firebase/firestore';
 import auth, { firebase } from '@react-native-firebase/auth';
+import { Button } from "react-native-paper";
 
 export default function DownloadedMap(){
     const navigation = useNavigation();
     const fieldPath = new firestore.FieldPath('data');
-    const [addedItems, setAddedItem] = useState<string[]>([]);
+    const [data, setData] = useState();
     
     useEffect(() => {getMapData();}, [])
     
@@ -17,6 +18,7 @@ export default function DownloadedMap(){
         .collection('maps')
         .where('uid', '==',auth().currentUser?.uid)
         .orderBy('date', 'desc')
+        .limit(1)
         .get()
         .then( querySnapshot => {
             let jsonString;
@@ -32,16 +34,15 @@ export default function DownloadedMap(){
         )
         .catch(e => console.error(e));
         
-        mapData.then((a) => {a? setAddedItem(a): console.log('Object undefined'); })
+        mapData.then((a) => {a? setData(a): console.log('Object undefined'); })
     };   
-    console.log('data: ' + addedItems);
+    console.log('data: ' + data);
     getMapData();
 
     return(
         <>
-        {addedItems?.map((addedItem: string|undefined) => (
-            <DisplayMap data={addedItem} />
-        ))}
+        <DisplayMap data={data} />
+        <Button mode="contained" onPress={()=>navigation.navigate("Aktiv oppsynstur")}>Bruk kartet</Button>
         </>
     )
 }
