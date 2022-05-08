@@ -1,11 +1,11 @@
+import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
-import { StyleSheet, View, Image, Text } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import { Button, Headline, IconButton, Title } from "react-native-paper";
 import firestore from '@react-native-firebase/firestore';
 import auth, { firebase } from '@react-native-firebase/auth';
-import { useNavigation } from "@react-navigation/native";
 
-export default function RegisterSheep(){
+export default function RegisterLamb(){
     const [count, setCount] = useState<number>(0);
     const navigation = useNavigation();
     const onIncreasePress = () => {
@@ -26,7 +26,7 @@ export default function RegisterSheep(){
         .limit(1)
         .get()
 
-        navigation.navigate('Antall lam');
+        navigation.navigate('Velg farge');
     }
     
     return(
@@ -34,9 +34,9 @@ export default function RegisterSheep(){
             <Headline style={styles.headline}>
                 Registrer
             </Headline>
-            <Title style={styles.title}>Antall voksne og lam</Title>
+            <Title style={styles.title}>Antall lam</Title>
             <Image 
-            source={require('../../images/sheep-lambs.png')}
+            source={require('../../images/lamb-icon.png')}
             style={styles.image}
             />
             <View style={styles.container}>
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     },
     image:{
         width: '50%',
-        height: '20%',
+        height: '30%',
         alignSelf: 'center',
         marginTop: '10%',
     },

@@ -24,6 +24,10 @@ import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import Map from './screens/Map';
 import DownloadedMap from './screens/DownloadedMap';
 import RegisterSheep from './screens/Registration/RegisterSheep';
+import RegisterLamb from './screens/Registration/RegisterLamb';
+import RegisterColor from './screens/Registration/RegisterColor';
+import RegisterTieColor from './screens/Registration/RegisterTieColor';
+import RegisterEarTagColor from './screens/Registration/RegisterEarTagColor';
 
 
 const Stack = createNativeStackNavigator();
@@ -65,6 +69,10 @@ const App: () => Node = () => {
                 <Stack.Screen name='Velg kart' component={SavedMaps} />
                 <Stack.Screen name='Bruk kartet' component={DownloadedMap} />
                 <Stack.Screen name='Antall sau og lam' component={RegisterSheep} />
+                <Stack.Screen name='Antall lam' component={RegisterLamb} />
+                <Stack.Screen name='Velg farge' component={RegisterColor} />
+                <Stack.Screen name='Velg farge på slips' component={RegisterTieColor} />
+                <Stack.Screen name='Farge på øremerker' component={RegisterEarTagColor} />
             </Stack.Navigator>
             </NavigationContainer>
         </PaperProvider>
