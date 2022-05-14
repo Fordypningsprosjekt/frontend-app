@@ -1,27 +1,93 @@
+import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
-import { Headline, IconButton, TextInput, Title } from "react-native-paper";
+import { Button, Headline, IconButton, TextInput, Title } from "react-native-paper";
+
 
 export default function RegisterEarTagColor(){
     const [addedColors, setAddedColors] = useState<string[]>([]);
+    const [text1, setText1] = useState<string>('');
+    const [text2, setText2] = useState<string>('');
+    const [text3, setText3] = useState<string>('');
+    const [text4, setText4] = useState<string>('');
+    const [text5, setText5] = useState<string>('');
+    const navigation = useNavigation();
+    const [showInputField, setInputField] = useState(false);
+
+    const onPress = () => {
+        setInputField(true);
+    }
+
+    const onSavePress = () => {
+        navigation.navigate('Antall skadde sauer');
+    }
 
     return(
-        <View>
+        <View style={styles.container}>
             <Headline style={styles.headline}>
                 Registrer
             </Headline>
             <Title style={styles.title}>
                 Farge på øremerker
                 </Title>
-        <TextInput
-        mode="outlined"
-        >
-            hei
-        </TextInput>
-        <IconButton 
-        icon="plus-circle"
-        size={50}
-        />
+            <View style={styles.inputField}>
+            <TextInput
+                mode="outlined"
+                onChangeText={()=>setText1(text1)}
+                label='Legg til farge'
+                placeholder="Farge"
+                value={text1}
+                style={styles.inputSpace}
+                />
+            <TextInput
+                mode="outlined"
+                onChangeText={()=>setText2(text2)}
+                label='Legg til farge'
+                placeholder="Farge"
+                value={text2}
+                style={styles.inputSpace}
+                />
+            <TextInput
+                mode="outlined"
+                onChangeText={()=>setText3(text3)}
+                label='Legg til farge'
+                placeholder="Farge"
+                value={text3}
+                style={styles.inputSpace}
+                />
+            <TextInput
+                mode="outlined"
+                onChangeText={()=>setText4(text4)}
+                label='Legg til farge'
+                placeholder="Farge"
+                value={text4}
+                style={styles.inputSpace}
+                />
+            {showInputField && 
+            <TextInput
+            mode="outlined"
+            onChangeText={()=>setText5(text5)}
+            label='Legg til farge'
+            placeholder="Farge"
+            value={text5}
+            style={styles.inputSpace}
+            />
+            }
+            </View>
+           
+            <IconButton 
+            icon="plus-circle"
+            size={50}
+            onPress={onPress}
+            style={styles.iconButton}
+            color="navy"
+            />
+            <Button 
+                mode="contained"
+                onPress={onSavePress}
+                style={styles.buttonStyle}>
+                    Lagre
+            </Button>
         </View>
     )
 }
@@ -35,14 +101,27 @@ const styles = StyleSheet.create({
         paddingTop:30
     },
     container: {
-        marginTop: '5%',
-        flexDirection: "row",
-        flexWrap: "wrap",
+        flexDirection: 'column',
+        alignItems: 'center',
+        padding: 20
     },
     section: {
         flex:3,     
     },
     text: {
         fontSize: 70
+    },
+    buttonStyle: {
+        width: '60%',
+        alignSelf:'center'
+    },
+    iconButton: {
+        alignSelf: 'center'
+    },
+    inputField: {
+        width:'100%',
+    },
+    inputSpace: {
+        marginBottom: '5%'
     },
 })

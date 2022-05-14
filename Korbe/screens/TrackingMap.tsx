@@ -5,6 +5,7 @@ import React from "react";
 import DisplayMap from "../components/DisplayMap";
 import { Button } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
+import { StyleSheet } from "react-native";
 
 export default function TrackingMap(){
     const navigation = useNavigation();
@@ -43,11 +44,20 @@ export default function TrackingMap(){
     return(
         <>
         <DisplayMap data={data} /> 
-        <Button mode="contained"
-        onPress={()=>navigation.navigate('Antall sau og lam')}>
+        <Button 
+        mode="contained"
+        onPress={()=>navigation.navigate('Velg avstand')}
+        style={styles.buttonStyle}>
             Registrer
             </Button>
         </>
     )
 
 }
+
+const styles = StyleSheet.create({
+    buttonStyle: {
+        width: '60%',
+        alignSelf:'center'
+    },
+})

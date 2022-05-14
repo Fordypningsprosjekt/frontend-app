@@ -60,7 +60,8 @@ export default function RegisterSheep(){
             </View>
             <Button 
             mode="contained"
-            onPress={onSavePress}>
+            onPress={onSavePress}
+            style={styles.buttonStyle}>
                 Lagre
             </Button>
         </View>
@@ -95,5 +96,9 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 70
-    }
+    },
+    buttonStyle: {
+        width: '60%',
+        alignSelf:'center'
+    },
 })

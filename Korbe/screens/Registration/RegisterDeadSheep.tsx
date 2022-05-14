@@ -1,11 +1,9 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, View, Text } from "react-native";
 import { Button, Headline, IconButton, Title } from "react-native-paper";
-import firestore from '@react-native-firebase/firestore';
-import auth, { firebase } from '@react-native-firebase/auth';
 
-export default function RegisterLamb(){
+export default function RegisterDeadSheep(){
     const [count, setCount] = useState<number>(0);
     const navigation = useNavigation();
     const onIncreasePress = () => {
@@ -18,15 +16,15 @@ export default function RegisterLamb(){
 
     const onSavePress = () => {
 
-        const tripId = 
-        firestore()
-        .collection('trips')
-        .where('uid', '==', auth().currentUser?.uid)
-        .orderBy('date', 'desc')
-        .limit(1)
-        .get()
+        // const tripId = 
+        // firestore()
+        // .collection('trips')
+        // .where('uid', '==', auth().currentUser?.uid)
+        // .orderBy('date', 'desc')
+        // .limit(1)
+        // .get()
 
-        navigation.navigate('Velg farge');
+        navigation.navigate('Aktiv oppsynstur');
     }
     
     return(
@@ -34,9 +32,9 @@ export default function RegisterLamb(){
             <Headline style={styles.headline}>
                 Registrer
             </Headline>
-            <Title style={styles.title}>Antall lam</Title>
+            <Title style={styles.title}>Antall døde sauer</Title>
             <Image 
-            source={require('../../images/lamb-icon.png')}
+            source={require('../../images/sheep-icon-png-27.jpg')}
             style={styles.image}
             />
             <View style={styles.container}>
@@ -98,7 +96,8 @@ const styles = StyleSheet.create({
         fontSize: 70
     },
     buttonStyle: {
+        marginTop: '10%',
         width: '60%',
         alignSelf:'center'
-    },
+    }
 })

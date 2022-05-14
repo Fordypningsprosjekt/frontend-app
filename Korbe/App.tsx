@@ -28,12 +28,14 @@ import RegisterLamb from './screens/Registration/RegisterLamb';
 import RegisterColor from './screens/Registration/RegisterColor';
 import RegisterTieColor from './screens/Registration/RegisterTieColor';
 import RegisterEarTagColor from './screens/Registration/RegisterEarTagColor';
+import DistancePicker from './screens/Registration/DistancePicker';
+import RegisterInjuredSheep from './screens/Registration/RegisterInjuredSheep';
+import RegisterDeadSheep from './screens/Registration/RegisterDeadSheep';
 
 
 const Stack = createNativeStackNavigator();
 
 const App: () => Node = () => {
-    const isDarkMode = useColorScheme() === 'dark';
     const [loading, setLoading] = useState<boolean>(true);
     const [user, setUser] = useState<FirebaseAuthTypes.User | null>(null);
 
@@ -68,11 +70,14 @@ const App: () => Node = () => {
                 <Stack.Screen name='Nedlastet kart' component={ScreenMap} />
                 <Stack.Screen name='Velg kart' component={SavedMaps} />
                 <Stack.Screen name='Bruk kartet' component={DownloadedMap} />
+                <Stack.Screen name='Velg avstand' component={DistancePicker} />
                 <Stack.Screen name='Antall sau og lam' component={RegisterSheep} />
                 <Stack.Screen name='Antall lam' component={RegisterLamb} />
                 <Stack.Screen name='Velg farge' component={RegisterColor} />
                 <Stack.Screen name='Velg farge på slips' component={RegisterTieColor} />
                 <Stack.Screen name='Farge på øremerker' component={RegisterEarTagColor} />
+                <Stack.Screen name='Antall skadde sauer' component={RegisterInjuredSheep}/>
+                <Stack.Screen name='Antall døde sauer' component={RegisterDeadSheep} />
             </Stack.Navigator>
             </NavigationContainer>
         </PaperProvider>

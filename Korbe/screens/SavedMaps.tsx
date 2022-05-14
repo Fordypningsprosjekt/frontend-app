@@ -45,7 +45,11 @@ export default function SavedMaps(props: SavedMapsProps){
                 <View style={styles.section}>
                 <Card.Title 
                 title={mapTitle}
-                right={()=><IconButton icon='arrow-right-thick' onPress={() => navigation.navigate("Bruk kartet")} />}
+                right={()=>
+                <IconButton 
+                    icon='arrow-right-thick' 
+                    onPress={() => navigation.navigate("Bruk kartet")} 
+                />}
                 style={styles.cardStyle}
                 />
                 </View>
@@ -64,7 +68,7 @@ const styles = StyleSheet.create({
         flexWrap: "wrap",
     },
     cardStyle:{
-        backgroundColor: 'blue',
+        backgroundColor: '#D2B4DE',
         width: '80%',
         
     },

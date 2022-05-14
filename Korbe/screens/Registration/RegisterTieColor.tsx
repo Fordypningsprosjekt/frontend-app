@@ -8,6 +8,7 @@ import ColorSelect from "../../components/ColorSelect";
 
 export default function RegisterTieColor(){
     const [count, setCount] = useState<number>(0);
+    const [countList, setCountList] = useState<number[]>([]);
     const [addedColors, setAddedColors] = useState<string[]>([]);
     const navigation = useNavigation();
     const onIncreasePress = () => {
@@ -21,15 +22,29 @@ export default function RegisterTieColor(){
 
     const onSavePress = () => {
 
-        const tripId = 
-        firestore()
-        .collection('trips')
-        .where('uid', '==', auth().currentUser?.uid)
-        .orderBy('date', 'desc')
-        .limit(1)
-        .get()
+        // const tripId = 
+        // firestore()
+        // .collection('trips')
+        // .where('uid', '==', auth().currentUser?.uid)
+        // .orderBy('date', 'desc')
+        // .limit(1)
+        // .get()
 
-        navigation.navigate('Farge på øremerker');
+        if(addedColors.length<=1){
+            setCountList([...countList, count]);
+            setCount(0);
+         }
+         if(addedColors.length===2){
+             setCountList([...countList, count]);
+             setCount(0);
+         }
+         if(addedColors.length===3){
+             setCountList([...countList, count]);  
+         }
+         if(addedColors.length>=4){
+            setCountList([...countList, count]);
+            navigation.navigate('Farge på øremerker');   
+        }
     }
     console.log('color', addedColors);
     return(
@@ -43,18 +58,26 @@ export default function RegisterTieColor(){
             source={require('../../images/sheep-tie.png')}
             style={styles.image}
             />
-            {addedColors?.map((color:string)=>{
-                <>
-                <IconButton 
-                icon="checkbox-blank-circle"
-                color={color}
-                size={20}
+            <View style={styles.container}>
+            {addedColors.map((color:string, key:number)=>{
+                const count = countList[key];
+                return (
+                <View style={styles.colorSection}>
+                    <IconButton
+                    key={key}
+                    icon="checkbox-blank-circle"
+                    color={color}
+                    size={20} 
                 />
+                
                 <Text>
                     {count}
-                </Text>
-                </>
+                    </Text>
+                </View>
+                
+                )
             })}
+             </View>
             <View style={styles.container}>
             <View style={styles.section}>
                 <IconButton 
@@ -76,7 +99,8 @@ export default function RegisterTieColor(){
             </View>
             <Button 
             mode="contained"
-            onPress={onSavePress}>
+            onPress={onSavePress}
+            style={styles.buttonStyle}>
                 Lagre
             </Button>
         </View>
@@ -111,5 +135,12 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 70
+    },
+    buttonStyle: {
+        width: '60%',
+        alignSelf:'center'
+    },
+    colorSection: {
+        flex:1
     },
 })

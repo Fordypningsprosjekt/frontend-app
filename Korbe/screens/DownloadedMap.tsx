@@ -4,6 +4,7 @@ import DisplayMap from "../components/DisplayMap";
 import firestore from '@react-native-firebase/firestore';
 import auth, { firebase } from '@react-native-firebase/auth';
 import { Button } from "react-native-paper";
+import { StyleSheet } from "react-native";
 
 export default function DownloadedMap(){
     const navigation = useNavigation();
@@ -77,7 +78,20 @@ export default function DownloadedMap(){
     return(
         <>
         <DisplayMap data={data} />
-        <Button mode="contained" onPress={onPress}>Bruk kartet</Button>
+        <Button 
+        mode="contained" 
+        onPress={onPress}
+        style={styles.buttonStyle}
+        >
+            Bruk kartet
+        </Button>
         </>
     )
 }
+
+const styles = StyleSheet.create({
+    buttonStyle: {
+        width: '60%',
+        alignSelf:'center'
+    }
+})
