@@ -24,7 +24,7 @@ export default function HomeScreen(){
         </Headline>
         <View style={styles.container}>
         <View style={styles.section}>
-        <RoundIconButton iconName='walk' buttonText='Ny oppsynstur' onPress={() => navigation.navigate('Ny oppsynstur')}/></View>
+        <RoundIconButton iconName='walk' buttonText='Ny tilsynstur' onPress={() => navigation.navigate('Ny oppsynstur')}/></View>
         <View style={styles.section}>
         <RoundIconButton iconName='folder-open' buttonText='Lagrede turer' onPress={() => navigation.navigate('Hjem')}/></View>
         <View style={styles.section}>

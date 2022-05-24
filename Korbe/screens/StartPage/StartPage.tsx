@@ -38,7 +38,7 @@ export default function StartPage() {
                 onPress={() => navigation.navigate('Opprett bruker')}
                 style={{ width: '50%', alignSelf: 'center' }}
             >
-                Lag ny bruker
+                Opprett bruker
             </Button>
         </View>
     );

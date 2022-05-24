@@ -33,7 +33,7 @@ export default function RegisterEarTagColor(){
             <View style={styles.inputField}>
             <TextInput
                 mode="outlined"
-                onChangeText={()=>setText1(text1)}
+                onChangeText={(text1: string)=>setText1(text1)}
                 label='Legg til farge'
                 placeholder="Farge"
                 value={text1}
@@ -41,7 +41,7 @@ export default function RegisterEarTagColor(){
                 />
             <TextInput
                 mode="outlined"
-                onChangeText={()=>setText2(text2)}
+                onChangeText={(text2: string)=>setText2(text2)}
                 label='Legg til farge'
                 placeholder="Farge"
                 value={text2}
@@ -49,7 +49,7 @@ export default function RegisterEarTagColor(){
                 />
             <TextInput
                 mode="outlined"
-                onChangeText={()=>setText3(text3)}
+                onChangeText={(text3: string)=>setText3(text3)}
                 label='Legg til farge'
                 placeholder="Farge"
                 value={text3}
@@ -57,7 +57,7 @@ export default function RegisterEarTagColor(){
                 />
             <TextInput
                 mode="outlined"
-                onChangeText={()=>setText4(text4)}
+                onChangeText={(text4: string)=>setText4(text4)}
                 label='Legg til farge'
                 placeholder="Farge"
                 value={text4}
@@ -66,7 +66,7 @@ export default function RegisterEarTagColor(){
             {showInputField && 
             <TextInput
             mode="outlined"
-            onChangeText={()=>setText5(text5)}
+            onChangeText={(text5: string)=>setText5(text5)}
             label='Legg til farge'
             placeholder="Farge"
             value={text5}
